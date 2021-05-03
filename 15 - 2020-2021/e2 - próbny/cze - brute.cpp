@@ -33,14 +33,14 @@ int main()
 	wantedSurface = C * D;
 	maxSurface = A * B;
 
-	for (int i = 1; i <= sqrt(wantedSurface) + 1 and i <= B; i++) {
+	for (int i = 1; i <= sqrt(wantedSurface) and i <= A; i++) {
+	//for (int i = 1; i <= sqrt(wantedSurface); i++) {
 		if (wantedSurface % i == 0) {
-			long long possibleY1 = wantedSurface / i;
-			long long possibleY2 = wantedSurface / (wantedSurface / i);
+			long long possibleY = wantedSurface / i;
 
-			cerr << i << " " << possibleY1 << " " << possibleY2 << endl;
+			cerr << i << " " << possibleY << endl;
 
-			if ((possibleY1 <= A and i * possibleY1 <= maxSurface) or (possibleY2 <= A and i * possibleY2 <= maxSurface)) {
+			if (possibleY <= B and i * possibleY <= maxSurface) {
 				cout << "TAK\n";
 				return 0;
 			}
